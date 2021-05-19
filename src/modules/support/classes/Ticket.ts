@@ -375,11 +375,11 @@ export class Ticket {
 									"https://github.com/PreMiD/Discord-Bot/blob/main/.discord/red_circle.png?raw=true"
 								)
 								.setColor("#b52222")
-								.setDescription(this.embed.description)
+								.setDescription(this.embed?.description || "Not Specified")
 								.addFields([
 									{
 										name: `Opened By`,
-										value: this.user.toString(),
+										value: this.user.toString() || this.userId,
 										inline: true
 									},
 									{
@@ -394,7 +394,10 @@ export class Ticket {
 									},
 									{
 										name: `Supporter(s)`,
-										value: this.supporters.join(", "),
+										value:
+											this.supporters.length > 0
+												? this.supporters.join(", ")
+												: "None",
 										inline: true
 									},
 									{
@@ -468,9 +471,7 @@ export class Ticket {
 		};
 		this.channelMessage.edit({ embed: supportEmbed });
 
-		if (sendMessage) await this.channel.send(`**>** ${member}`);
-
-		this.channel.updateOverwrite(member, {
+		await this.channel.updateOverwrite(member, {
 			VIEW_CHANNEL: true,
 			SEND_MESSAGES: true,
 			EMBED_LINKS: true,
@@ -487,6 +488,8 @@ export class Ticket {
 				}
 			}
 		);
+
+		if (sendMessage) await this.channel.send(`**>** ${member}`);
 	}
 
 	async removeSupporter(member: Discord.GuildMember, sendMessage = true) {
