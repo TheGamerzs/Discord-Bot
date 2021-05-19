@@ -51,7 +51,18 @@ export default {
 	},
 	donate: {
 		title: "Donate to PreMiD's Development",
+<<<<<<< HEAD
 		aliases: ["patreon", "serverboost", "boost", "nitroboost", "dontskipads"],
+=======
+		aliases: [
+			"donate",
+			"patreon",
+			"serverboost",
+			"boost",
+			"nitroboost",
+			"dontskipads"
+		],
+>>>>>>> b3c3d7938329f875b93c5908d38c552d533b3626
 		description:
 			"Want to support PreMiD's Development? Great! You can do so by boosting our Discord server, which will get you a special role, or you can support us on [Patreon](https://patreon.com/Timeraa)!",
 		footer: false
