@@ -15,7 +15,7 @@
 		"@types/chart.js": "^2.9.29",
 		"axios": "0.21.1",
 		"canvas": "^2.6.1",
-		"chalk": "^4.1.0",
+		"chalk": "^4.1.1",
 		"chart.js": "^2.9.4",
 		"chartjs-node-canvas": "^3.0.6",
 		"discord.js": "12.5.3",
